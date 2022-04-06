@@ -6,7 +6,7 @@ Want to search for content in GitHub team posts? Use this CLI.
 
 ## Usage:
 
-Get a PAT with access to access to read team discussions.
+Get a PAT with access to read team discussions.
 
 Then run:
 
