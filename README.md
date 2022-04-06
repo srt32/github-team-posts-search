@@ -16,7 +16,7 @@ GITHUB_TOKEN=<token> go run main.go -org=github -team=engineering -query=mysql
 
 ## Limitations
 
-* The CLI looks at only the most 100 team posts.
+* The CLI looks at only the most recent 100 team posts.
 * The query is checked direclty against the content doing an exact string match.
 
 ## Notes
