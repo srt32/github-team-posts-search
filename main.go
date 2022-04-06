@@ -17,6 +17,9 @@ type Post struct {
 	Body      string `json:"body"`
 	ID        int    `json:"id"`
 	CreatedAt string `json:"created_at"`
+	Author    struct {
+		Login string `json:"login"`
+	} `json:"author"`
 }
 
 // Usage: GITHUB_TOKEN=<token> go run main.go -org=github -team=engineering -query=mysql1
@@ -43,14 +46,14 @@ func main() {
 
 	// search the post bodies for the query
 	for _, post := range posts {
-		if strings.Contains(post.Body, *query) || strings.Contains(post.Title, *query) {
+		if strings.Contains(post.Body, *query) || strings.Contains(post.Title, *query) || strings.Contains(post.Author.Login, *query) {
 			matches = append(matches, post)
 		}
 	}
 
 	// print the matches
 	for _, match := range matches {
-		log.Printf("%s - %s - %s", match.CreatedAt, match.Title, match.URL)
+		log.Printf("%s - %s - %s - %s", match.CreatedAt, match.Author.Login, match.Title, match.URL)
 	}
 }
 
